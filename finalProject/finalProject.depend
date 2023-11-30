@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1701157591 source:c:\c++\tubes_std\finalproject\main.cpp
+	<iostream>
+
+1701305546 source:c:\c++\tubes_std\finalproject\relasi.cpp
+	"relasi.h"
+
+1701305477 c:\c++\tubes_std\finalproject\relasi.h
+	"dosen.h"
+	"mahasiswa.h"
+
+1701304085 c:\c++\tubes_std\finalproject\dosen.h
+	<iostream>
+
+1701304089 c:\c++\tubes_std\finalproject\mahasiswa.h
+	<iostream>
+

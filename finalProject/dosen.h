@@ -11,6 +11,8 @@ struct infodosen {
     string namaDosen;
     string kodeDosen;
     string NIP;
+    int jumPembimbing1;
+    int jumPembimbing2;
 };
 
 struct ElmDosen {
@@ -26,6 +28,10 @@ struct listDosen {
 
 adrDosen createElmtDosen();
 void createListDosen(listDosen &Ld);
+void insertLastDosen(listDosen &Ld, adrDosen p);
+void deleteLastDosen(listDosen &Ld, adrDosen &p);
+void deleteAfterDosen(listDosen &Ld, adrDosen prev, adrDosen &p);
+void deleteFirstDosen(listDosen &Ld, adrDosen &p);
 
 
 #endif // DOSEN_H_INCLUDED

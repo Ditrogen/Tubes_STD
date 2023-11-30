@@ -1,6 +1,9 @@
 #ifndef MAHASISWA_H_INCLUDED
 #define MAHASISWA_H_INCLUDED
 
+#include <iostream>
+using namespace std;
+
 struct infomahasiswa {
     string namaMhs, NIM, judulSkripsi;
 };
