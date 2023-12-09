@@ -1,5 +1,24 @@
 #include "relasi.h"
 
+void menu() {
+    cout << "============================" << endl;
+    cout << "Halaman Depan Final Project" << endl;
+    cout << endl;
+    cout << "Silahkan pilih opsi berikut: " << endl;
+    cout << "1. Tambah Info Dosen Pembimbing" << endl;
+    cout << "2. Tambah Info Mahasiswa" << endl;
+    cout << "3. Mencari Dosen Pembimbing" << endl;
+    cout << "4. Mencari Mahasiswa" << endl;
+    cout << "5. Assign Dosen Pembimbing ke Mahasiswa" << endl;
+    cout << "6. UnAssign Dosen Pembimbing ke Mahasiswa" << endl;
+    cout << "7. Menghapus Info Dosen" << endl;
+    cout << "8. Menghapus Info Mahasiswa" << endl;
+    cout << "9. Menampilkan Info Mahasiswa dengan Dosen Pembimbing" << endl;
+    cout << "10. Menampilkan Info Dosen Pembimbing" << endl;
+    cout << "Tekan 0 untuk Keluar Program" << endl;
+    cout << "============================" << endl;
+}
+
 void createListDosen(listDosen &Ld) {
     Ld.first=NULL;
     Ld.last=NULL;

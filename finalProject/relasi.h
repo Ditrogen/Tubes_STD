@@ -22,5 +22,6 @@ void insertLastRelasi(listRelasi &Lr, adrRelasi p);
 void deleteLastRelasi(listRelasi &Lr, adrRelasi &p);
 void deleteAfterRelasi(listRelasi &Lr, adrRelasi prev, adrRelasi &p);
 void deleteFirstRelasi(listRelasi &Lr, adrRelasi &p);
+void menu();
 
 #endif // RELASI_H_INCLUDED

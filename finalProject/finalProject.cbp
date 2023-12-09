@@ -35,6 +35,8 @@
 		<Unit filename="dosen.h" />
 		<Unit filename="mahasiswa.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="relasi.cpp" />
+		<Unit filename="relasi.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
