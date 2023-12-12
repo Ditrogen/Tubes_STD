@@ -32,7 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="dosen.cpp" />
 		<Unit filename="dosen.h" />
+		<Unit filename="mahasiswa.cpp" />
 		<Unit filename="mahasiswa.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="relasi.cpp" />

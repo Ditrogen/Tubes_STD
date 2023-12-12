@@ -19,40 +19,8 @@ void menu() {
     cout << "============================" << endl;
 }
 
-void createListDosen(listDosen &Ld) {
-    Ld.first=NULL;
-    Ld.last=NULL;
-}
-
-void createListMhs(listMhs &Lm) {
-    Lm.first=NULL;
-    Lm.last=NULL;
-}
-
 void createListRelasi(listRelasi &Lr) {
     Lr.first=NULL;
-}
-
-adrDosen createElmtDosen() {
-    adrDosen p = new ElmDosen;
-    p->next=NULL;
-    p->prev=NULL;
-    cin >> p->info.namaDosen;
-    cin >> p->info.kodeDosen;
-    cin >> p->info.NIP;
-    p->info.jumPembimbing1=0;
-    p->info.jumPembimbing2=0;
-    return p;
-}
-
-adrMhs createElmtMhs() {
-    adrMhs p = new ElmMhs;
-    p->next=NULL;
-    p->prev=NULL;
-    cin >> p->info.namaMhs;
-    cin >> p->info.NIM;
-    cin >> p->info.judulSkripsi;
-    return p;
 }
 
 adrMhs createElmtRelasi() {
@@ -60,42 +28,51 @@ adrMhs createElmtRelasi() {
     p->next=NULL;
     p->nextDosen=NULL;
     p->nextMhs=NULL;
+    return p;
 }
 
-void insertLastDosen(listDosen &Ld, adrDosen p) {
-    if (Ld.first==NULL && Ld.last==NULL) {
-        Ld.first=p;
-        Ld.last=p;
+void insertLastRelasi(listRelasi &Lr, adrRelasi p) {
+    if (Lr.first==NULL && Lr.last==NULL) {
+        Lr.first=p;
+        Lr.last=p;
     } else {
-        Ld.last->next=p;
-        p->prev=Ld.last;
-        Ld.last=p;
+        Lr.last->next=p;
+        p->prev=Lr.last;
+        Lr.last=p;
     }
 }
-
-void deleteLastDosen(listDosen &Ld, adrDosen &p) {
-    if (Ld.first==NULL && Ld.last==NULL) {
+void inserFirstRelasi(listRelasi &Lr, adrRelasi p){
+    if (Lr.first==NULL && Lr.last==NULL) {
+            Lr.first=p;
+            Lr.last=p;
+        } else {
+            p->next=Lr.first;
+            Lr.first->prev=p;
+            Lr.first=p;
+        }
+}
+void deleteLastRelasi(listRelasi &Lr, adrRelasi &p){
+    if (Lr.first==NULL && Lr.last==NULL) {
         p=NULL;
-    } else if (Ld.first->next==NULL) {
-        p=Ld.first;
-        Ld.first=NULL;
-        Ld.last=NULL;
+    } else if (Lr.first->next==NULL) {
+        p=Lr.first;
+        Lr.first=NULL;
+        Lr.last=NULL;
     } else {
-        p=Ld.last;
-        Ld.last=p->prev;
-        Ld.last->next=NULL;
+        p=Lr.last;
+        Lr.last=p->prev;
+        Lr.last->next=NULL;
         p->prev=NULL;
     }
 }
-
-void deleteAfterDosen(listDosen &Ld, adrDosen prev, adrDosen &p) {
+void deleteAfterRelasi(listRelasi &Lr, adrRelasi prev, adrRelasi &p){
     if (prev==NULL || prev->next==NULL) {
         p=NULL;
     } else {
         p=prev->next;
         if (p->next==NULL) {
-            Ld.last=p->prev;
-            Ld.last->next=NULL;
+            Lr.last=p->prev;
+            Lr.last->next=NULL;
             p->prev=NULL;
         } else {
             prev->next=p->next;
@@ -105,18 +82,103 @@ void deleteAfterDosen(listDosen &Ld, adrDosen prev, adrDosen &p) {
         }
     }
 }
-
-void deleteFirstDosen(listDosen &Ld, adrDosen &p) {
-    if (Ld.first==NULL && Ld.last==NULL) {
+void deleteFirstRelasi(listRelasi &Lr, adrRelasi &p){
+    if (Lr.first==NULL && Lr.last==NULL) {
         p=NULL;
-    } else if (Ld.first->next==NULL) {
-        p=Ld.first;
-        Ld.first=NULL;
-        Ld.last=NULL;
+    } else if (Lr.first->next==NULL) {
+        p=Lr.first;
+        Lr.first=NULL;
+        Lr.last=NULL;
     } else {
-        p=Ld.first;
-        Ld.first=p->next;
+        p=Lr.first;
+        Lr.first=p->next;
         p->next=NULL;
-        Ld.first->prev=NULL;
+        Lr.first->prev=NULL;
     }
+}
+
+void searchRelasiByDosen(listRelasi Lr, listDosen Ld, listMhs Lm, string kodeDosen){
+    adrRelasi r = Lr.first;
+    adrDosen d = searchDosen(Ld,kodeDosen);
+    if (d != NULL){
+        while (r != NULL){
+            if (r->nextDosen->info.kodeDosen==kodeDosen){
+                cout << r->nextMhs->info.namaMhs << r->nextMhs->info.NIM << r->nextMhs->info.judulSkripsi << endl;
+            }
+            r = r->next;
+        }
+        cout << endl;
+    } else {
+        cout << "Dosen tidak ditemukan" << endl;
+    }
+}
+
+void addRelasi(listRelasi &Lr, listDosen Ld, listMhs Lm, string kodeDosen, string NIM){
+    adrDosen d = searchDosen(Ld, kodeDosen);
+    adrMhs m = searchMhs(Lm, NIM);
+
+    adrRelasi r = createElmtRelasi();
+    r->nextDosen = d;
+    r->nextMhs = m;
+    inserFirstRelasi(Lr, r);
+}
+
+void deleteRelasiByDosen(listRelasi &Lr, listDosen Ld, listMhs Lm, string kodeDosen, string NIM){
+    adrDosen d = searchDosen(Ld, kodeDosen);
+    adrMhs m = searchMhs(Lm, NIM);
+    adrRelasi r = Lr.first;
+
+    while (r != NULL && (r->nextDosen != d || r->nextMhs != m)){
+        r = r->next;
+    }
+    if (r != NULL){
+        // Ngehapus data di infotypeMhs
+        if (r->nextMhs->info.dospem1 == kodeDosen){
+            r->nextMhs->info.dospem1 = "#";
+        }
+        if (r->nextMhs->info.dospem2 == kodeDosen){
+            r->nextMhs->info.dospem2 = "#";
+        }
+
+        // NULL-in relasi
+        r->nextDosen = NULL;
+        r->nextMhs = NULL;
+
+        // Ngehapus elemen relasinya
+        if (r==Lr.first) {
+            deleteFirstRelasi(Lr, r);
+        } else if ( r->next==NULL ){
+            deleteLastRelasi(Lr, r);
+        } else {
+            adrRelasi prev = Lr.first;
+            while (prev->next!=r) {
+                prev=prev->next;
+            }
+            deleteAfterRelasi(Lr, prev, r);
+        }
+    } else {
+        cout << "Input tidak Valid" << endl;
+    }
+}
+
+int jumMhsByDosen(listRelasi &Lr, listDosen Ld, listMhs Lm, string kodeDosen) {
+    adrRelasi r = Lr.first;
+    int j = 0;
+    while (r!=NULL) {
+        if (r->nextDosen->info.kodeDosen==kodeDosen) {
+            j=j+1;
+        }
+    }
+    return j;
+}
+
+int jumDosenByMhs(listRelasi &Lr, listDosen Ld, listMhs Lm, string NIM) {
+    adrRelasi r = Lr.first;
+    int j = 0;
+    while (r!=NULL) {
+        if (r->nextMhs->info.NIM==NIM) {
+            j=j+1;
+        }
+    }
+    return j;
 }

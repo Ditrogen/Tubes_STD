@@ -6,6 +6,7 @@ using namespace std;
 
 struct infomahasiswa {
     string namaMhs, NIM, judulSkripsi;
+    string dospem1, dospem2;
 };
 
 typedef struct infomahasiswa infotypeMhs;
@@ -22,6 +23,12 @@ struct listMhs {
 
 void createListMhs(listMhs &Lm);
 adrMhs createElmtMhs();
+void insertLastMhs(listMhs &Lm, adrMhs p);
+void insertFirstMhs(listMhs &Lm, adrMhs p);
+void deleteLastMhs(listMhs &Lm, adrMhs &p);
+void deleteAfterMhs(listMhs &Lm, adrMhs prev, adrMhs &p);
+void deleteFirstMhs(listMhs &Lm, adrMhs &p);
+adrMhs searchMhs(listMhs Lm, string NIM);
 
 
 
