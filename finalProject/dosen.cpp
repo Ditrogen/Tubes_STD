@@ -9,9 +9,15 @@ adrDosen createElmtDosen() {
     adrDosen p = new ElmDosen;
     p->next=NULL;
     p->prev=NULL;
+    cout << "Nama Dosen : ";
     cin >> p->info.namaDosen;
+    cout << endl;
+    cout << "Kode Dosen : ";
     cin >> p->info.kodeDosen;
+    cout << endl;
+    cout << "NIP : ";
     cin >> p->info.NIP;
+    cout << endl;
     return p;
 }
 

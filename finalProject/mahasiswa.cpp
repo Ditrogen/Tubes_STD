@@ -9,9 +9,15 @@ adrMhs createElmtMhs() {
     adrMhs p = new ElmMhs;
     p->next=NULL;
     p->prev=NULL;
+    cout << "Nama : ";
     cin >> p->info.namaMhs;
+    cout << endl;
+    cout << "NIM : ";
     cin >> p->info.NIM;
+    cout << endl;
+    cout << "Judul Skripsi : ";
     cin >> p->info.judulSkripsi;
+    cout << endl;
     p->info.dospem1="#";
     p->info.dospem2="#";
     return p;
