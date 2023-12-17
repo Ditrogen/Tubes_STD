@@ -5,8 +5,9 @@
 using namespace std;
 
 struct infomahasiswa {
-    string namaMhs, NIM, judulSkripsi;
+    string namaMhs, NIM;
     string dospem1, dospem2;
+    string NIP1, NIP2;
 };
 
 typedef struct infomahasiswa infotypeMhs;
@@ -28,7 +29,9 @@ void insertFirstMhs(listMhs &Lm, adrMhs p);
 void deleteLastMhs(listMhs &Lm, adrMhs &p);
 void deleteAfterMhs(listMhs &Lm, adrMhs prev, adrMhs &p);
 void deleteFirstMhs(listMhs &Lm, adrMhs &p);
-adrMhs searchMhs(listMhs Lm, string NIM);
+adrMhs searchMhsByNIM(listMhs Lm, string NIM);
+adrMhs searchMhsByNama(listMhs Lm, string nama);
+void showAllMhs(listMhs Lm);
 
 
 
