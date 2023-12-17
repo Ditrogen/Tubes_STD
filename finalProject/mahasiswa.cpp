@@ -9,11 +9,14 @@ adrMhs createElmtMhs() {
     adrMhs p = new ElmMhs;
     p->next=NULL;
     p->prev=NULL;
+    cout << "Masukkan nama Mahasiswa: ";
     cin >> p->info.namaMhs;
+    cout << "Masukkan NIM Mahasiswa: ";
     cin >> p->info.NIM;
-    cin >> p->info.judulSkripsi;
-    p->info.dospem1="#";
-    p->info.dospem2="#";
+    p->info.dospem1="-";
+    p->info.dospem2="-";
+    p->info.NIP1="-";
+    p->info.NIP2="-";
     return p;
 }
 void insertLastMhs(listMhs &Lm, adrMhs p){
@@ -81,10 +84,39 @@ void deleteFirstMhs(listMhs &Lm, adrMhs &p){
         Lm.first->prev=NULL;
     }
 }
-adrMhs searchMhs(listMhs Lm, string NIM){
+adrMhs searchMhsByNIM(listMhs Lm, string NIM){
     adrMhs p = Lm.first;
     while (p != NULL && p->info.NIM != NIM){
         p = p->next;
     }
     return p;
+}
+adrMhs searchMhsByNama(listMhs Lm, string nama){
+    adrMhs p = Lm.first;
+    while (p != NULL && p->info.namaMhs != nama){
+        p = p->next;
+    }
+    return p;
+}
+void showAllMhs(listMhs Lm){
+    adrMhs p = Lm.first;
+    cout << "===================== List Mahasiswa =====================" << endl;
+    cout << endl;
+    while (p != NULL){
+        cout << "Nama: ";
+        cout << p->info.namaMhs << endl;
+        cout << "NIM: " ;
+        cout << p->info.NIM << endl;
+        cout << "Dosen Pembimbing 1: ";
+        cout << p->info.dospem1 << endl;
+        cout << "NIP Dosen: ";
+        cout << p->info.NIP1 << endl;
+        cout << "Dosen Pembimbing 2: ";
+        cout << p->info.dospem2 << endl;
+        cout << "NIP Dosen: ";
+        cout << p->info.NIP2 << endl;
+        cout << endl;
+        p = p->next;
+    }
+    cout << "=========================================================" << endl;
 }
