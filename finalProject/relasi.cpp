@@ -95,12 +95,15 @@ void searchRelasiByDosen(listRelasi Lr, listDosen Ld, listMhs Lm, string kodeDos
     adrRelasi r = Lr.first;
     adrDosen d = searchDosenByKode(Ld,kodeDosen);
     if (d != NULL){
+        cout << "======================================" << endl;
+        cout << "Mahasiswa yang dibimbing oleh Dosen " << d->info.namaDosen << endl;
         while (r != NULL){
             if (r->nextDosen->info.kodeDosen==kodeDosen){
                 cout << r->nextMhs->info.namaMhs << r->nextMhs->info.NIM << endl;
             }
             r = r->next;
         }
+        cout << "======================================" << endl;
         cout << endl;
     } else {
         cout << "Dosen tidak ditemukan" << endl;
@@ -207,7 +210,8 @@ void deleteRelasiByDosen(listRelasi &Lr, listDosen Ld, listMhs Lm, string kodeDo
     }
 }
 
-int jumMhsByDosen(listRelasi &Lr, listDosen Ld, listMhs Lm, string kodeDosen) {
+
+int jumMhsByDosen(listRelasi Lr, listDosen Ld, listMhs Lm, string kodeDosen) {
     adrRelasi r = Lr.first;
     int j = 0;
     while (r!=NULL) {
@@ -218,7 +222,7 @@ int jumMhsByDosen(listRelasi &Lr, listDosen Ld, listMhs Lm, string kodeDosen) {
     return j;
 }
 
-int jumDosenByMhs(listRelasi &Lr, listDosen Ld, listMhs Lm, string NIM) {
+int jumDosenByMhs(listRelasi Lr, listDosen Ld, listMhs Lm, string NIM) {
     adrRelasi r = Lr.first;
     int j = 0;
     while (r!=NULL) {

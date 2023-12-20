@@ -17,6 +17,7 @@ adrDosen createElmtDosen() {
     cin >> p->info.kodeDosen;
     cout << "Masukkan NIP Dosen: ";
     cin >> p->info.NIP;
+    cout << endl;
     return p;
 }
 
