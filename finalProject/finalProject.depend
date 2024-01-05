@@ -15,13 +15,13 @@
 1702362893 c:\c++\tubes_std\finalproject\mahasiswa.h
 	<iostream>
 
-1702643930 source:c:\users\yohan\documents\github\tubes_std\finalproject\dosen.cpp
+1703084908 source:c:\users\yohan\documents\github\tubes_std\finalproject\dosen.cpp
 	"dosen.h"
 
 1702643930 c:\users\yohan\documents\github\tubes_std\finalproject\dosen.h
 	<iostream>
 
-1702564407 source:c:\users\yohan\documents\github\tubes_std\finalproject\mahasiswa.cpp
+1703084953 source:c:\users\yohan\documents\github\tubes_std\finalproject\mahasiswa.cpp
 	"mahasiswa.h"
 
 1702564407 c:\users\yohan\documents\github\tubes_std\finalproject\mahasiswa.h
@@ -30,13 +30,13 @@
 1702441226 source:c:\users\yohan\documents\github\tubes_std\finalproject\testfile.cpp
 	"mahasiswa.h"
 
-1702480515 c:\users\yohan\documents\github\tubes_std\finalproject\relasi.h
+1703126178 c:\users\yohan\documents\github\tubes_std\finalproject\relasi.h
 	"dosen.h"
 	"mahasiswa.h"
 
-1702644136 source:c:\users\yohan\documents\github\tubes_std\finalproject\main.cpp
+1703125931 source:c:\users\yohan\documents\github\tubes_std\finalproject\main.cpp
 	"relasi.h"
 
-1702643930 source:c:\users\yohan\documents\github\tubes_std\finalproject\relasi.cpp
+1703085021 source:c:\users\yohan\documents\github\tubes_std\finalproject\relasi.cpp
 	"relasi.h"
 
